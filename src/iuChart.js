@@ -1,5 +1,5 @@
 "use strict";
-angular.module('iaap',[])
+angular.module('iu',[])
 /**
  * iuChart指令，基于echarts构建
  * @author huk/2015.01.07
