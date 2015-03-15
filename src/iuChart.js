@@ -7,7 +7,7 @@ angular.module('iu',[])
  * 属性version表示版本号，对需要动态更新option的场景，该属性应初始化为非0值。该值更新标识option需更新。
  * 属性onRegisterApi用于注册API接口，其中api对象的registeEvents用于注册事件。
  */
-.directive('iuEcharts',['exportService',function(exportService){
+.directive('iuChart',function(){
     return {
       restrict: 'EA',
       template: '<div></div>',
@@ -26,7 +26,7 @@ angular.module('iu',[])
         function initializeChart(){
           dom = elem.find('div')[0] || elem[0];
           if(!dom.clientHeight){
-            dom.clientHeight = 220;
+            dom.height(220);
           }
           chart = echarts.init(dom);
           chart.setOption(option);
@@ -36,10 +36,9 @@ angular.module('iu',[])
             option.onRegisterApi(api);
           }
 
-          if(scope.iuChart.version){
+          if(angular.isDefined(scope.iuChart.version)){
             watch = scope.$watch('iuChart.version',function(newValue,oldValue){
               if(newValue !== oldValue) {
-                //console.log(moment().format('YYYY-MM-DD HH:mm:ss') + ':iuChart update');
                   chart.setOption(option,true);
               }
             });
@@ -115,24 +114,12 @@ angular.module('iu',[])
               //todo
             },
             /**
-             * 隐藏loading
+             * hide loading
              */
             hideLoading: function () {
                 //todo
             },
-            /**
-             * 保存图表
-             * @param {{type:string,name:string}} file
-             */
-           /* saveImage : function(file){
-              var img =chart.getImage(file.type||'png');
-              if(img && img.height) {
-                exportService.url({
-                  name:file.name || 'file.png',
-                  url:img.src
-                });
-              }
-            },*/
+
             /**
              * get chart's image
              * @param imgType
@@ -198,11 +185,19 @@ angular.module('iu',[])
          * @returns {*}
          */
         function registerAngularEvent(oScope, handler) {
-          eventId =  framework.uuid();
+          eventId =  uuid();
           return oScope.$on(eventId, function (event) {
             var args = Array.prototype.slice.call(arguments);
             args.splice(0, 1);
             handler.apply(oScope, args);
+          });
+        }
+
+        function uuid(){
+          return 'xxxxxxxx-xxxx-8xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0,
+                v = c === 'x' ? r : (r & 3 | 8);
+            return v.toString(16);
           });
         }
 
@@ -239,7 +234,7 @@ angular.module('iu',[])
         }
 
         /**
-         * 触发回调
+         * raise CallBack
          * @param e
          */
         function raiseCallBack(e) {
@@ -249,4 +244,4 @@ angular.module('iu',[])
         }
       }
     };
-  }]);
+  });
