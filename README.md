@@ -1,13 +1,13 @@
 # eCharts for Angular.js
 Angular.js directive for [baidu echarts](http://echarts.baidu.com/).
 
-- [angular Demo](http://)
+- [angular Demo](./example/index.html)
 - [echarts Examples](http://echarts.baidu.com/doc/example-en.html)
 - [echarts Documentation](http://echarts.baidu.com/doc/doc-en.html)
 
 ## Usage Screenshot
 
-![]()
+![example](./example/example.png)
 
 ## eCharts Features ##
 ![baidu echarts](http://echarts.baidu.com/doc/asset/img/mix.jpg)
@@ -56,7 +56,7 @@ App.controller('ChartController', function ($scope) {
           x: 60,
           y: 10,
           x2: 10,
-          y2: 55//60
+          y2: 55
         },
         padding: 0,
         calculable: true,
