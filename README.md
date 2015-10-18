@@ -100,7 +100,7 @@ App.controller('ChartController', function ($scope) {
 ## Advanced usage
 - Realtime update chart.
 
-  **Must** set `version` value and not equal 0 in chartOption.After update data or option,increment version attribute value to update charts.
+  **Must** set `version` attribute(like {version: 1}} in chartOption.After update data or option,increment version value to update chart.
 
 ```
  chart.chartOption.xAxis[0].data = ...;
@@ -161,6 +161,6 @@ $scope.chartApi.registeEvents($scope,[1,3],function(param){
 see example.
 
 ## Author ##
-[huk](email:huk@126.com)
+[huke](email:ihuke@126.com)
 
 
