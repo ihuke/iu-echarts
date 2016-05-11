@@ -26,9 +26,9 @@ angular.module('iu',[])
         function initializeChart(){
           dom = elem.find('div')[0] || elem[0];
           if(!dom.clientHeight){
-            dom.height(220);
+            dom.height(option.height || elem.height() || elem.parent().height() || 220);
           }
-          chart = echarts.init(dom);
+          chart = option.theme ? echarts.init(dom,option.theme) : echarts.init(dom);
           chart.setOption(option);
 
           if (angular.isFunction(option.onRegisterApi)) {
