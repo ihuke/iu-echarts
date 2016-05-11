@@ -4,7 +4,7 @@ angular.module('iu',[])
  * iuChart指令，基于echarts构建
  * @author huk/2015.01.07
  * @description
- * 属性version表示版本号，对需要动态更新option的场景，该属性应初始化为非0值。该值更新标识option需更新。
+ * 属性version表示版本号，对需要动态更新option的场景，更新其值时表示刷新图表。
  * 属性onRegisterApi用于注册API接口，其中api对象的registeEvents用于注册事件。
  */
 .directive('iuChart',function(){
