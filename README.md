@@ -12,14 +12,6 @@ Angular.js directive for [baidu echarts](http://echarts.baidu.com/).
 ## eCharts Features ##
 ![baidu echarts](http://echarts.baidu.com/doc/asset/img/mix.jpg)
 
-## Instalation
--**Bower**
-
-The easiest way to install the picker is:
-```
-bower install iu-echarts --save
-```
-
 -**Manual**
 
 This directive depends on [eCharts](https://github.com/ecomfe/echarts) and [Angular](http://angular.org).
