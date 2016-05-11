@@ -25,8 +25,10 @@ angular.module('iu',[])
          */
         function initializeChart(){
           dom = elem.find('div')[0] || elem[0];
-          if(!dom.clientHeight){
-            dom.height(option.height || elem.height() || elem.parent().height() || 220);
+          if(option.height){
+              dom.height(option.height);
+          } else if (!dom.clientHeight){
+            dom.height(elem.height() || elem.parent().height() || 220);
           }
           chart = option.theme ? echarts.init(dom,option.theme) : echarts.init(dom);
           chart.setOption(option);
